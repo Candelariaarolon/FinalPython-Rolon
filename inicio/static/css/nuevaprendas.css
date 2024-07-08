@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.masthead {
+    position: relative;
+    height: 100vh;
+    background-image: url('path/to/your/image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.form-container {
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.prendas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-template-rows: repeat(2, auto); /* Dos filas */
+    gap: 20px; /* Espacio entre elementos */
+    margin-top: 200px; /* Ajusta este valor según el espacio que quieras dejar entre la navbar y los productos */
+}
+
+.prenda-item {
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Nuevo CSS para la navbar */
+.navbar {
+    position: fixed; /* Fija la navbar en la parte superior de la página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: #ffffff; 
+}

@@ -1,10 +1,8 @@
-
 {% extends 'basedef.html' %}
 
 {% block title_head %}
 <title>Agregar Una Nueva Prenda al Shop: </title>
 {% endblock title_head %}
-
 
 {% block contenido_encabezado %}
 
@@ -15,19 +13,44 @@
     <p>Por favor, <a href="{% url 'iniciar_sesion' %}">inicia sesión</a> para acceder.</p>
 {% endif %}
 
-
-<body>
-    <h1>Subir Prenda</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar Prenda</button>
-    </form>
-</body>
-
+<h1>Subir Prenda</h1>
+<form id="subirPrendaForm" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar Prenda</button>
+</form>
 
 {% endblock contenido_encabezado %}
 
-
-
-
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('subirPrendaForm');
+    form.addEventListener('submit', function(event) {
+        // Evitar que el formulario se envíe automáticamente
+        event.preventDefault();
+        
+        // Enviar el formulario mediante AJAX
+        var formData = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Redirigir a la página de nuevos ingresos después de guardar la prenda
+                window.location.href = "{% url 'nuevos_ingresos' %}";
+            } else {
+                console.error('Error al guardar la prenda');
+            }
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+        });
+    });
+});
+</script>
+{% endblock scripts %}

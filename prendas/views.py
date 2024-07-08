@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from prendas.models import PrendasRopa
 from .forms import PrendaForm, ComentarioForm
@@ -42,3 +42,8 @@ def guardar_comentario(request, prenda_id):
             prenda.comentarios.create(texto=comentario)
             return redirect('nuevos_ingresos')
     return redirect('nuevos_ingresos')
+
+
+def detalle_prenda(request, prenda_id):
+    prenda = get_object_or_404(PrendasRopa, id=prenda_id)
+    return render(request, 'prendas/especificaprenda.html', {'prenda': prenda})

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class PrendasRopa(models.Model):
-   # foto = models.ImageField(upload_to='prendas/')
+    foto = models.ImageField(upload_to='prendas/', default='prendas/default.jpg')
     Titulo = models.CharField(max_length=200, default='Título predeterminado')
     Marca = models.CharField(max_length=200, default='Marca predeterminada')
     Vendedor= models.CharField(max_length=200, default='Nombre de vendedor')

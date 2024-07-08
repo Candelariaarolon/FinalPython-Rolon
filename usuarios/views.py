@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login 
 from .models import Usuario
+from django.contrib.auth import logout
 from .forms import LoginForm, RegistroUsuarioForm
+from django.contrib.auth import views as auth_views 
 
 def agregar_producto(request):
     return HttpResponse("Agregar nuevos productos: ")
@@ -42,3 +44,11 @@ def iniciar_sesion(request):
         form = LoginForm()
 
     return render(request, 'usuarios/inicio_sesion.html', {'form': form})
+
+
+
+def logout_view(request):
+
+    logout(request)
+    return redirect('inicio')
+

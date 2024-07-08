@@ -91,7 +91,7 @@
 }
 
 body {
-  background-image: url('https://fashionista.com/.image/t_share/MTUwNzI3NjY3OTE2ODc1MzAy/what-goes-around-comes-around-new-york.jpg');
+  background-image: none;
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -102,6 +102,21 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.prenda-imagen {
+  max-width: 50%; 
+  height: auto; 
+  max-height: 280px; /* Establece una altura máxima para la imagen */
+  margin-bottom: 20px; /* Espacio opcional para separar la imagen del resto del contenido */
+}
+
+
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
 }
 
 hr {
@@ -10870,8 +10885,7 @@ header.masthead h1, header.masthead .h1 {
   padding: 3rem;
 }
 .showcase .showcase-img {
-  min-height: 30rem;
-  background-size: cover;
+  background-image: none; 
 }
 @media (min-width: 768px) {
   .showcase .showcase-text {

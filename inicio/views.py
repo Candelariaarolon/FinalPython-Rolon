@@ -11,3 +11,7 @@ def inicio(request):
    # template_renderizado = template.render({})
    # return HttpResponse(template_renderizado)
    
+def sobremi(request):
+    
+    return render(request, 'inicio/aboutme.html', {})
+    

@@ -26,8 +26,13 @@
             <a class="navbar-brand" href="{% url 'prendas' %}">Comprar</a>
             <a class="navbar-brand" href="{% url "nuevos_ingresos" %}">NEW IN</a>
             <a class="navbar-brand" href="{% url "subir_prenda" %}">Vender</a>
+            {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'logout_view' %}">Cerrar Sesión</a>
+        {% else %}
             <a class="navbar-brand" href="{% url 'registro_usuario' %}">Registrarme</a>
             <a class="navbar-brand" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
+        {% endif %}
+            <a class="navbar-brand" href="{% url 'sobremi' %}">About Me</a>
             
         </div>
     </nav>
